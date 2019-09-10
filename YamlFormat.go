@@ -42,6 +42,10 @@ func yamlConvertMessage(m *Message, s *bytes.Buffer) {
 		s.WriteString(fmt.Sprint("  response_time: !!timestamp ", t.Format(yamlTimeFormat), "\n"))
 	}
 
+	if m.LocalId != nil {
+		s.WriteString(fmt.Sprintf("  local_id: %X\n", *m.LocalId))
+	}
+
 	if m.SocketFamily != nil {
 		s.WriteString(fmt.Sprint("  socket_family: ", m.SocketFamily, "\n"))
 	}

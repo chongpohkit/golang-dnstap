@@ -165,6 +165,16 @@ message Message {
         // TOOL_RESPONSE is a DNS response message received by a DNS software
         // tool from a DNS server, from the perspective of the tool.
         TOOL_RESPONSE = 12;
+
+        // UPDATE_QUERY is a DNS update query message received from a resolver
+        // by an authoritative name server, from the perspective of the
+        // authoritative name server.
+	UPDATE_QUERY = 13;
+
+        // UPDATE_RESPONSE is a DNS update response message sent from an
+        // authoritative name server to a resolver, from the perspective of the
+        // authoritative name server.
+	UPDATE_RESPONSE = 14;
     }
 
     // One of the Type values described above.
@@ -222,6 +232,16 @@ message Message {
 
     // The responder's original wire-format DNS response message, verbatim.
     optional bytes              response_message = 14;
+
+    // Start of Infoblox specific log messages
+    optional bytes              subscriber_id = 15; // 32 bytes
+
+    optional uint64 local_id = 16; // 8 bytes
+
+    optional bytes pcp_ssp = 17; // 16 bytes
+
+    optional bytes proxy_all = 18; // Type ?
+
 }
 
 // All fields except for 'type' in the Message schema are optional.
