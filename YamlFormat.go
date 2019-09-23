@@ -43,11 +43,15 @@ func yamlConvertMessage(m *Message, s *bytes.Buffer) {
 	}
 
 	if m.LocalId != nil {
-		s.WriteString(fmt.Sprintf("  local_id: %X\n", *m.LocalId))
+		s.WriteString(fmt.Sprintf("  local_id: %012X\n", *m.LocalId))
 	}
 
     if m.PcpSsp != nil {
-        s.WriteString(fmt.Sprintf("  pcp_ssp: %X\n", m.PcpSsp))
+        s.WriteString(fmt.Sprintf("  pcp_ssp: %032X\n", m.PcpSsp))
+    }
+
+    if m.SubscriberId != nil {
+        s.WriteString(fmt.Sprintf("  subscriber_id: %s\n", m.SubscriberId))
     }
 
 	if m.SocketFamily != nil {
