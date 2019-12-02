@@ -82,6 +82,7 @@ func (o *TextOutput) GetOutputChannel() chan []byte {
 func (o *TextOutput) RunOutputLoop() {
 	dt := &Dnstap{}
 	for frame := range o.outputChannel {
+	//for range o.outputChannel {
 		if err := proto.Unmarshal(frame, dt); err != nil {
 			log.Fatalf("dnstap.TextOutput: proto.Unmarshal() failed: %s\n", err)
 			break

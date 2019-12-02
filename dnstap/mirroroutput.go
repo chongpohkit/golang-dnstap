@@ -18,7 +18,8 @@ package main
 
 
 import (
-	dnstap "github.com/dnstap/golang-dnstap"
+	//dnstap "github.com/dnstap/golang-dnstap"
+	dnstap ".."
 )
 
 type mirrorOutput struct {

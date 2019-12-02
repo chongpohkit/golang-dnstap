@@ -49,6 +49,11 @@ func textConvertIP(s *bytes.Buffer, ip []byte) {
 	}
 }
 
+func textConvertTXID(s *bytes.Buffer, txid *uint32) {
+		s.WriteString(fmt.Sprintf("%u", *txid))
+
+}
+
 func textConvertMessage(m *Message, s *bytes.Buffer) {
 	isQuery := false
 	printQueryAddress := false
@@ -134,6 +139,11 @@ func textConvertMessage(m *Message, s *bytes.Buffer) {
 
 	if m.SocketProtocol != nil {
 		s.WriteString(m.SocketProtocol.String())
+	}
+	s.WriteString(" ")
+
+	if m.Txid != nil {
+		textConvertTXID(s, m.Txid)	
 	}
 	s.WriteString(" ")
 

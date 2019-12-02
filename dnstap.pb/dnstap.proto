@@ -240,8 +240,11 @@ message Message {
 
     optional bytes pcp_ssp = 17; // 16 bytes
 
-    optional bytes proxy_all = 18; // Type ?
+    optional bytes proxy_all = 18; // Proxy all
 
+    optional bytes fqdn = 19; // MAX 255 bytes
+
+    required uint32 txid = 20; //16-bit transaction id 
 }
 
 // All fields except for 'type' in the Message schema are optional.
