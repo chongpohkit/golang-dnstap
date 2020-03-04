@@ -61,13 +61,13 @@ func yamlConvertMessage(m *Message, s *bytes.Buffer) {
 	if m.SocketProtocol != nil {
 		s.WriteString(fmt.Sprint("  socket_protocol: ", m.SocketProtocol, "\n"))
 	}
-	
+
 	if m.Txid != nil {
 		s.WriteString(fmt.Sprint("  txid: ", *m.Txid, "\n"))
 	}
-    
+
 	if m.Fqdn != nil {
-        s.WriteString(fmt.Sprintf("  subscriber_id: %s\n", m.Fqdn))
+        s.WriteString(fmt.Sprintf("  fqdn: %s\n", m.Fqdn))
     }
 
 	if m.QueryAddress != nil {
